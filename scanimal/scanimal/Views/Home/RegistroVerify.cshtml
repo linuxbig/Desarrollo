@@ -1,0 +1,40 @@
+﻿            <style>
+                .botonera {
+                    background-color:Green;
+                    width:50%;
+                }
+            </style>
+
+@(Html.Kendo().MobileView()
+        .Content(
+            @<text>
+            <table>
+               <tr>
+                  <td>
+
+                      <img src="@Url.Content("~/Images/Scan/wRegistroVerify.jpg")" class="km-widget km-tabstrip" style="height:70%;" />
+                  
+                  </td>
+               </tr>
+               <tr>
+                  <td class="botonera">
+                      
+
+
+
+                        @(Html.Kendo().MobileButton()
+                            .Name("b-Login")
+                            .Text("Save & Continue")
+                            .HtmlAttributes(new { style = "margin: 2em; text-align: center;" })
+                            .Url("Login", "Home")
+                        )
+
+
+
+                  </td>
+               </tr>
+
+            </table>
+            </text>
+        )
+)

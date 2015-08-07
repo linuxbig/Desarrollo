@@ -1,0 +1,14 @@
+﻿@(Html.Kendo().MobileView()
+    .Title("Details")
+    .Name("Details")
+    .Content(
+        @<text>
+        View Details Template
+        <!--Add back button that will `server navigate` the application to `Index`-->
+        @(Html.Kendo().MobileButton()
+            .Text("Go Back")
+            .Url("./")
+        )
+        </text>
+    )
+)

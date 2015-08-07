@@ -1,0 +1,61 @@
+﻿            <style>
+                .login {
+                    background-color:Green;
+                    width:50%;
+                }
+                .registrar {
+                    background-color:Green;
+                    width:50%;
+                }
+            </style>
+
+@(Html.Kendo().MobileView()
+        .Content(
+            @<text>
+            <table>
+               <tr>
+                  <td colspan="2">
+
+                      <img src="@Url.Content("~/Images/Scan/w0001.jpg")" class="km-widget km-tabstrip" style="height:70%;" />
+                  
+                  </td>
+               </tr>
+               <tr>
+                  <td class="login">
+                      
+
+
+
+                        @(Html.Kendo().MobileButton()
+                            .Name("b-Login")
+                            .Text("Login")
+                            .HtmlAttributes(new { style = "margin: 2em; text-align: center;" })
+                            .Url("Login", "Home")
+                        )
+
+
+
+                  </td>
+                  <td class="registrar">
+                        @(Html.Kendo().MobileButton()
+                            .Name("b-Registrar")
+                            .HtmlAttributes(new { style = "margin: 2em; text-align: center;" })
+                            .Text("Register")
+                            .Url("Registro", "Home")
+                        )
+                  </td>
+               </tr>
+            </table>
+            </text>
+        )
+)
+
+
+
+<script>
+    var app = new kendo.mobile.Application();
+
+    function onClick() {
+        console.log("clicked");
+    }
+</script>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>::ScanImal</title>
+     <meta name="apple-mobile-web-app-capable" content="yes" />
+     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.mobile.ios.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.default.min.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/kendo/2015.2.624/kendo.dataviz.silver.min.css")" rel="stylesheet" type="text/css" />
+
+
+	<link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/jquery.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/jszip.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/kendo.all.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo/2015.2.624/kendo.aspnetmvc.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+
+</head>
+    <body>
+        @RenderBody()
+
+        <!--Layout-->
+        @{Html.Kendo().MobileLayout()
+            .Name("TabstripLayout")
+            .Platform("ios")
+            .Header(() =>
+                Html.Kendo().MobileNavBar()
+                    .Content(navbar => @<text>
+                                 @(Html.Kendo().MobileBackButton()
+                                                            .Align(MobileButtonAlign.Left)
+                                                            .HtmlAttributes(new { @class = "nav-button" })
+                                                            .Url(Url.RouteUrl(new { controller = "home" }))
+                                                            .Text("Home"))
+
+                                 @navbar.ViewTitle("iOS Platform")
+                                      </text>)
+            )
+            
+            .Footer(@<text>
+                @(Html.Kendo().MobileTabStrip()
+                    .Name("Tabstrip")
+                    .Items(items => {
+                        items.Add().Icon("home").Text("Index").Url("Index", "Home");
+                      
+                    }))
+            </text>)
+            .Render();
+        }
+
+        @(Html.Kendo().MobileApplication()
+            .ServerNavigation(true)
+          //  .PushState(false)
+            .Layout("TabstripLayout")
+            .HideAddressBar(true)
+        )
+    </body>
+</html>

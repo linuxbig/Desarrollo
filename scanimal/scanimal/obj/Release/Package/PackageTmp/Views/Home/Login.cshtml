@@ -1,0 +1,41 @@
+﻿            <style>
+                .botonera {
+                    background-color:Green;
+                    width:50%;
+                }
+            </style>
+
+@(Html.Kendo().MobileView()
+        .Title("View Title")
+        .Content(
+            @<text>
+            <table>
+               <tr>
+                  <td colspan="2">
+
+                      <img src="@Url.Content("~/Images/Scan/wIngLogin.jpg")" class="km-widget km-tabstrip" style="height:70%;" />
+                  
+                  </td>
+               </tr>
+               <tr>
+                  <td class="botonera">
+                      
+
+
+
+                        @(Html.Kendo().MobileButton()
+                            .Name("b-Login")
+                            .Text("Login")
+                            .HtmlAttributes(new { style = "margin: 2em; text-align: center;" })
+                            .Url("LoginVerify", "Home")
+                        )
+
+
+
+                  </td>
+               </tr>
+
+            </table>
+            </text>
+        )
+)
